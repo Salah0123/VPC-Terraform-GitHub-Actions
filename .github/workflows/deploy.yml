@@ -26,21 +26,21 @@ jobs:
 
       - name: Initialize Terraform
         run: terraform init
-        working-directory: ./terraform_vpc
+        working-directory: ./Terraform_VPC
 
       - name: Validate Terraform Configuration
         run: terraform validate
-        working-directory: ./terraform_vpc
+        working-directory: ./Terraform_VPC
 
       - name: Plan Terraform Deployment
         run: terraform plan -out=tfplan
-        working-directory: ./terraform_vpc
+        working-directory: ./Terraform_VPC
 
       - name: Apply Terraform Deployment
         run: terraform apply -auto-approve tfplan
-        working-directory: ./terraform_vpc
+        working-directory: ./Terraform_VPC
 
       - name: Destroy Terraform Deployment (Optional)
         # if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: terraform apply -auto-approve
-        working-directory: ./terraform_vpc
+        working-directory: ./Terraform_VPC
